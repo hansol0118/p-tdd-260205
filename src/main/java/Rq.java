@@ -13,13 +13,18 @@ public class Rq {
     }
 
     public String getParam(String key) {
-        String param = cmd.split("\\?")[0];
-        String paramKey = param.split("=")[0];
-        String paramValue = param.split("=")[1];
+        String params = cmd.split("\\?")[1];
 
-        if(paramKey.equals(key)){
-            return paramValue;
+        for(String param : params.split("&")){
+            String paramKey = param.split("=")[0];
+            String paramValue = param.split("=")[1];
+
+            if(paramKey.equals(key)){
+                return paramValue;
+            }
         }
+
+
         return "";
     }
 }

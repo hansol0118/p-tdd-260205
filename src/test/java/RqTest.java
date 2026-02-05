@@ -29,7 +29,7 @@ public class RqTest {
     void t3() {
 
         Rq rq = new Rq("수정?id=1");
-        String rst = rq.getParam("keyword");
+        String rst = rq.getParam("keyword","");
         assertThat(rst).isEqualTo("자바");
     }
 
@@ -38,7 +38,7 @@ public class RqTest {
     void t4() {
 
         Rq rq = new Rq("수정?keywordType=title");
-        String rst = rq.getParam("keywordType");
+        String rst = rq.getParam("keywordType","");
         assertThat(rst).isEqualTo("title");
     }
 
@@ -47,7 +47,7 @@ public class RqTest {
     void t5() {
 
         Rq rq = new Rq("수정?keywordType=title");
-        String rst = rq.getParam("keywordType");
+        String rst = rq.getParam("keywordType","");
         assertThat(rst).isEqualTo("title");
     }
 
@@ -56,7 +56,7 @@ public class RqTest {
     void t6() {
 
         Rq rq = new Rq("목록?keyword=자바&keywordType=title");
-        String rst = rq.getParam("keywordType");
+        String rst = rq.getParam("keywordType","");
         assertThat(rst).isEqualTo("title");
     }
 
@@ -92,7 +92,7 @@ public class RqTest {
     void t10() {
 
         Rq rq = new Rq("목록?keyword=자바");
-        int rst = rq.getParam("keywordType","");
+        String rst = rq.getParam("keywordType","");
         assertThat(rst).isEqualTo("");
     }
 }

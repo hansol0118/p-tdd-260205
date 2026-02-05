@@ -24,9 +24,7 @@ public class Rq {
                 return paramValue;
             }
         }
-
-
-        return "";
+        return defaultValue;
     }
 
     public int getParamAsInt(String key, int defaultValue) {

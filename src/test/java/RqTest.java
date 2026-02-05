@@ -60,4 +60,23 @@ public class RqTest {
         assertThat(rst).isEqualTo("title");
     }
 
+
+    @Test
+    @DisplayName(value = "목록?page=1, rq.getParam(\"page\") -> 1")
+    void t7() {
+
+        Rq rq = new Rq("목록?page=1");
+        int rst = rq.getParamAsInt("page");
+        assertThat(rst).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName(value = "목록?page=1, rq.getParam(\"page\") -> 1")
+    void t8() {
+
+        Rq rq = new Rq("목록?page=10");
+        int rst = rq.getParamAsInt("page");
+        assertThat(rst).isEqualTo(10);
+    }
+
 }

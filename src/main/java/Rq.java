@@ -11,4 +11,15 @@ public class Rq {
 //        return "";
         return cmd.split("\\?")[0];
     }
+
+    public String getParam(String key) {
+        String param = cmd.split("\\?")[0];
+        String paramKey = param.split("=")[0];
+        String paramValue = param.split("=")[1];
+
+        if(paramKey.equals(key)){
+            return paramValue;
+        }
+        return "";
+    }
 }

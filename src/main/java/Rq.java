@@ -17,18 +17,23 @@ public class Rq {
         String params = cmd.split("\\?")[1];
 
         for (String param : params.split("&")) {
-            String paramKey = param.split("=")[0];
-            String paramValue = param.split("=")[1];
 
-            if (paramKey.equals(key)) {
-                return paramValue;
+            try {
+                String paramKey = param.split("=")[0];
+                String paramValue = param.split("=")[1];
+                if (paramKey.equals(key)) {
+                    return paramValue;
+                }
+
+            } catch (IndexOutOfBoundsException e) {
+                return defaultValue;
             }
         }
         return defaultValue;
     }
 
     public int getParamAsInt(String key, int defaultValue) {
-        String rst = getParam(key,"");
+        String rst = getParam(key, "");
         try {
             return Integer.parseInt(rst);
         } catch (NumberFormatException e) {

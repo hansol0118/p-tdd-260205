@@ -78,5 +78,12 @@ public class RqTest {
         int rst = rq.getParamAsInt("page");
         assertThat(rst).isEqualTo(10);
     }
+    @Test
+    @DisplayName(value = "삭제?id=aaa, rq.getParamAsInt(\"id\") -> \"-1\"")
+    void t9() {
 
+        Rq rq = new Rq("삭제?id=aaa");
+        String rst = rq.getParamAsInt("id",-1);
+        assertThat(rst).isEqualTo(-1);
+    }
 }

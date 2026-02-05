@@ -86,4 +86,13 @@ public class RqTest {
         int rst = rq.getParamAsInt("id",-1);
         assertThat(rst).isEqualTo(-1);
     }
+
+    @Test
+    @DisplayName(value = "목록?keyword=자바, rq.getParam(\"keywordType\",\"\") -> \"\"")
+    void t10() {
+
+        Rq rq = new Rq("목록?keyword=자바");
+        int rst = rq.getParam("keywordType","");
+        assertThat(rst).isEqualTo("");
+    }
 }
